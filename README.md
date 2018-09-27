@@ -57,8 +57,8 @@ You can watch 3 mins demonstration video here : http://youtu.be/P5vpaGoBlBY wher
 	
 	   public void btn_manage_db_clicked(View v){
         Intent i= new Intent(this, AndroidDatabaseManager.class);
-        startActivity(i);
-    }
+	startActivity(i);
+	}
 			
 	
 (ii) If you are using an action bar add an item  to the action bar and start activity when action bar item is 			       clicked.
