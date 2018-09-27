@@ -34,37 +34,34 @@ You can watch 3 mins demonstration video here : http://youtu.be/P5vpaGoBlBY wher
 
 3) Add the following code to your android manifest .Enter the name of the package where AndroidDatabaseManager.java is located.
 
-    <activity android:name="yourpackagename.AndroidDatabaseManager" 
-    	      android:theme="@style/Theme.AppCompat.Light"/>
+	   <activity android:name="yourpackagename.AndroidDatabaseManager" android:label="@string/app_name"/>
 
-4) Now you have to start the AndroidDatabaseManager activity . You can do this anyway you wish,Below 3 are the simple ways
+4) Now you have to start the AndroidDatabaseManager activity . You can do this anyway you wish,Below 2 are the simple ways
    to start the activity choose anyone as per your convenience.
    
-   (i)  add OnClickListener to a TextView. You can use the textview which is already present in your layout or add a TextView element to your xml.
+   (i)  add OnClickListener to a Button. You can add it to your main activity for instance. In your layout XML file add the following:
+   
+       <Button
+        android:id="@+id/buttonBrowseDatabase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Manage database"
+        android:onClick="btn_manage_db_clicked"/>
     	
-	   TextView tv =(TextView)findViewById(R.id.yourtextviewid);
-	    	
-	   tv.setOnClickListener(new OnClickListener() {
-				public void onClick(View v) {
+	   	
+	Then, in the java file of the activity containing the added button, add the following function:
 	
-	      Intent dbmanager = new Intent(getActivity(),AndroidDatabaseManager.class);
-				startActivity(dbmanager);
-	         }
-			});
+	
+	   public void btn_manage_db_clicked(View v){
+        Intent i= new Intent(this, AndroidDatabaseManager.class);
+        startActivity(i);
+    }
 			
-(ii) add OnClickListener to a Button. You can use the button which is already present in your layout or add a 			Button element to your xml.
-    	
-	   Button button =(Button)findViewByID(R.id.yourbuttonid);
-	    	
-	   button.setOnClickListener(new OnClickListener() {
-				public void onClick(View v) {
 	
-	      Intent dbmanager = new Intent(getActivity(),AndroidDatabaseManager.class);
-				startActivity(dbmanager);
-	         }
-			});
-	
-(iii) If you are using an action bar add an item  to the action bar and start activity when action bar item is 			       clicked.
+(ii) If you are using an action bar add an item  to the action bar and start activity when action bar item is 			       clicked.
 	 
 That's it. Now you can manage your application database directly from your app.
 
